@@ -1,6 +1,10 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
+// TODO
+// 1. Data dummy (mencoba mengubah angka value agar dinamis)
+// 2. Coba koneksi lewat serial terlebih dahulu, misal protokol string
+// 3. Prioritas terakhir: map, karena hanya ditampilkan saja
 
 int main(int argc, char *argv[])
 {
