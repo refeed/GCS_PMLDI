@@ -8,6 +8,15 @@ Window {
     visible: true
     title: qsTr("GCS Autonomus Vehicle PMLDI")
 
+    function updateSensorText(speedNum, distanceNum, pitchNum, rollNum, yawNum) {
+        // TODO Use this function to update the data label
+        speedText.text = `${speedNum} m/s`;
+        distanceText.text = `${distanceNum} m`;
+        pitchText.text = `${pitchNum} °`;
+        rollText.text = `${rollNum} °`;
+        yawText.text = `${yawNum} °`;
+    }
+
     Text {
         id: text1
         x: 14
