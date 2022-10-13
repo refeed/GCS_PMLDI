@@ -43,7 +43,7 @@ Window {
         }
 
         Text {
-            id: text3
+            id: speedText
             text: qsTr("0 m/s")
             font.pixelSize: 28
             font.family: "Roboto"
@@ -59,7 +59,7 @@ Window {
         }
 
         Text {
-            id: text5
+            id: distanceText
             text: qsTr("0 m")
             font.pixelSize: 28
             font.family: "Roboto"
@@ -75,7 +75,7 @@ Window {
         }
 
         Text {
-            id: text7
+            id: pitchText
             text: qsTr("0 °")
             font.pixelSize: 28
             font.family: "Roboto"
@@ -91,7 +91,7 @@ Window {
         }
 
         Text {
-            id: text9
+            id: yawText
             text: qsTr("0 °")
             font.pixelSize: 28
             font.family: "Roboto"
@@ -107,7 +107,7 @@ Window {
         }
 
         Text {
-            id: text11
+            id: rollText
             text: qsTr("0 °")
             font.pixelSize: 28
             font.family: "Roboto"
@@ -116,7 +116,7 @@ Window {
     }
 
     Button {
-        id: button
+        id: connectButton
         x: 6
         y: 407
         width: 131
