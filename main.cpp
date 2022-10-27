@@ -1,3 +1,4 @@
+#include "serialmanager.h"
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlComponent>
@@ -21,16 +22,23 @@ int main(int argc, char *argv[])
     QQmlComponent component(&engine, "qrc:/main.qml");
     QObject *object = component.create();
 
-    // TODO: Mencoba menjalankan method di thread lain
-    // Atau gunakan mekanisme SLOT & SIGNAL di Qt
-    QMetaObject::invokeMethod(
-                object,
-                "updateSensorText",
-                Q_ARG(QVariant, 3),
-                Q_ARG(QVariant, "some"),
-                Q_ARG(QVariant, "some"),
-                Q_ARG(QVariant, "some"),
-                Q_ARG(QVariant, "some"));
+    // TODO: Make a pop-up window when "Connect" is clicked
+
+    SerialManager manager;
+
+    QObject::connect(&manager, &SerialManager::receivedData,
+                     [&](int speed, int distance, int roll, int pitch, int yaw) {
+        QMetaObject::invokeMethod(
+                    object,
+                    "updateSensorText",
+                    Q_ARG(QVariant, speed),
+                    Q_ARG(QVariant, distance),
+                    Q_ARG(QVariant, roll),
+                    Q_ARG(QVariant, pitch),
+                    Q_ARG(QVariant, yaw));
+    });
+
+    manager.readFromSerial();
 
     return app.exec();
 }
