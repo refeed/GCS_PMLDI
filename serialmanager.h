@@ -9,6 +9,7 @@ class SerialManager : public QObject
 public:
     explicit SerialManager(QObject *parent = nullptr);
     void readFromSerial();
+    void enumeratePorts();
 
 signals:
     void receivedData(int speed, int distance, int roll, int pitch, int yaw);

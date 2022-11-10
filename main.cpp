@@ -38,6 +38,8 @@ int main(int argc, char *argv[])
                     Q_ARG(QVariant, yaw));
     });
 
+    // TODO: Use arduino or dummy serial to test whether the serial module is working or not
+    manager.enumeratePorts();
     manager.readFromSerial();
 
     return app.exec();
